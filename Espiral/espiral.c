@@ -58,7 +58,7 @@ void rellenar_matriz(){
             for (i = dimension - 1 - vuelta, j = dimension - 1 - vuelta; val <= valores && i > vuelta; i--) {
                 matriz[i][j] = val;
                 val++;
-            }
+            } 
 
             for (i = vuelta, j = dimension - 1 - vuelta; val <= valores && j > vuelta; j--) {
                 matriz[i][j] = val;

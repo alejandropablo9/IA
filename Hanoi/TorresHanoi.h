@@ -5,13 +5,13 @@
 using namespace std;
 
 class TorresHanoi{
-  private:
     stack<int> torre_inicial;
     stack<int> torre_auxiliar;
     stack<int> torre_objetivo;
+    int discos;
 
   public:
-    void inicializa();
+    void inicializa(int dis);
     //verifica si las torres estan vacias
     bool estaVaciaTorre_inicial();
     bool estaVaciaTorre_auxiliar();
@@ -46,5 +46,8 @@ class TorresHanoi{
 		void MoverdeTorre_auxiliaraTorre_objetivo();
 		void MoverdeTorre_objetivoaTorre_inicial();
 		void MoverdeTorre_objetivoaTorre_auxiliar();
+
+    bool esSolucion();
+    void verTorres();
 };
 #endif

@@ -9,15 +9,16 @@ void Puzzle::inicializa(){
 }
 
 void Puzzle::rellenar(){
-  tablero[0][0] = 4;
-  tablero[0][1] = 5;
-  tablero[0][2] = 2;
-  tablero[1][0] = 1;
-  tablero[1][1] = 3;
-  tablero[1][2] = 0;
-  tablero[2][0] = 6;
-  tablero[2][1] = 8;
-  tablero[2][2] = 7;
+  tablero[0][0] = 1;
+  tablero[0][1] = 2;
+  tablero[0][2] = 3;
+  tablero[1][0] = 4;
+  tablero[1][1] = 0;
+  tablero[1][2] = 8;
+  tablero[2][0] = 7;
+  tablero[2][1] = 5;
+  tablero[2][2] = 6;
+
   /*
 	for(int i=0; i<3; i++){
 		for(int j=0; j<3; j++){
@@ -108,16 +109,20 @@ int Puzzle::getYVacio(){
 
 bool Puzzle::esSolucion(){
   int i, j;
-  int valor = 1; //variable para verificar la solucion
+  int valor = 1;
   for(i = 0; i < 3; i++){
     for(j = 0; j < 3; j++){
-      if(tablero[i][j] == valor){
+      if(tablero[i][j] != valor){
+        break;
+      }else{
         valor++;
       }
     }
   }
-  if(valor == 8)
+
+  if(valor == 9){
     return true;
+  }
   return false;
 }
 

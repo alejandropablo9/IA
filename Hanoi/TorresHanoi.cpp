@@ -1,7 +1,8 @@
 #include<TorresHanoi.h>
 
-void TorresHanoi::inicializa(int discos){
-  for(int i = 1; i <= discos; i++){
+void TorresHanoi::inicializa(int dis){
+  discos = dis;
+  for(int i = discos; i >= 1; i--){
     torre_inicial.push(i);
   }
 }
@@ -130,6 +131,74 @@ bool TorresHanoi::verificasiMovimientodeTorreObjetivoaAuxiliar(){
     if(verCimaTorre_objetivo() < verCimaTorre_auxiliar())
       return true;
   return false;
+}
+
+bool TorresHanoi::esSolucion(){
+  //cout << discos <<"\n";
+  //cout << alturadeTorre_objetivo();
+  if(alturadeTorre_objetivo() == discos)
+    return true;
+  return false;
+}
+
+void TorresHanoi::verTorres(){
+  stack<int> torre_i;
+  stack<int> torre_a;
+  stack<int> torre_o;
+
+  int topI = alturadeTorre_inicial();
+  int topA = alturadeTorre_auxiliar();
+  int topO = alturadeTorre_objetivo();
+  int m;
+
+  if(topI>topA)
+    m = topI;
+  else
+    m = topA;
+  if(m < topO)
+    m = topO;
+
+  while(m > 0){
+    if(alturadeTorre_inicial() == m){
+      cout <<torre_inicial.top()<<"\t";
+      torre_i.push(torre_inicial.top());
+      torre_inicial.pop();
+    }else{
+      cout <<" "<<"\t";
+    }
+    if(alturadeTorre_auxiliar() == m){
+      cout <<torre_auxiliar.top()<<"\t";
+      torre_a.push(torre_auxiliar.top());
+      torre_auxiliar.pop();
+    }else{
+      cout <<" "<<"\t";
+    }
+    if(alturadeTorre_objetivo() == m){
+      cout <<torre_objetivo.top();
+      torre_o.push(torre_objetivo.top());
+      torre_objetivo.pop();
+    }else{
+      cout <<" "<<"\t";
+    }
+    cout <<"\n";
+    m--;
+  }
+  cout <<"\n";
+
+  while(!torre_i.empty()){
+    torre_inicial.push(torre_i.top());
+    torre_i.pop();
+  }
+
+  while(!torre_a.empty()){
+    torre_auxiliar.push(torre_a.top());
+    torre_a.pop();
+  }
+
+  while(!torre_o.empty()){
+    torre_objetivo.push(torre_o.top());
+    torre_o.pop();
+  }
 }
 
 void TorresHanoi::MoverdeTorre_inicialaTorre_auxiliar(){
