@@ -12,8 +12,8 @@ void Puzzle::rellenar(){
   tablero[0][0] = 1;
   tablero[0][1] = 2;
   tablero[0][2] = 3;
-  tablero[1][0] = 4;
-  tablero[1][1] = 0;
+  tablero[1][0] = 0;
+  tablero[1][1] = 4;
   tablero[1][2] = 8;
   tablero[2][0] = 7;
   tablero[2][1] = 5;

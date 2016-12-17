@@ -30,6 +30,7 @@ class Grafo{
     void insertArista(Vertice *origen, Vertice *destino, int distancia);
     void insertVertice(char c);
     void listadeAdyacencia();
+    void recorridoRustico(Vertice *origen);
 };
 
 #endif

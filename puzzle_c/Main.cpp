@@ -11,7 +11,7 @@ void busqueda_profundidad(Puzzle p, int profundidad){
     if(p.esSolucion()){
       printf("Solucion Encontrada :)\n");
       solucion = true;
-    }else if(profundidad == 6 ){
+    }else if(profundidad == 15 ){
      return;
     }
     if(p.puedeIralaDerecha()){

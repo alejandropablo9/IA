@@ -1,6 +1,7 @@
+#include <stack>
+#include <list>
+#include "Grafo.h"
 
-#include<Grafo.h>
-#include<list>
 void Grafo::inicializa(){
   h = NULL;
 }
@@ -67,6 +68,7 @@ void Grafo::insertArista(Vertice *origen, Vertice *destino, int distancia){
   }
 }
 
+
 void Grafo::listadeAdyacencia(){
   Vertice *vAux;
   Arista *aAux;
@@ -84,26 +86,47 @@ void Grafo::listadeAdyacencia(){
   }
 
 }
+
+void Grafo::recorridoRustico(Vertice *origen){
+  int band, band2;
+  Vertice *actual;
+  stack<Vertice> pila;
+  list<Vertice> lista;
+  list<Vertice>::iterator i;
+
+  pila.push(origen);
 /*
-bool comprobarLista(list<char> lista, char c){
-  list<char>::iterator pos;
-  pos = lista.begin();
-  while(pos != lista.end()){
-    if(*pos == c)
-      return true;
-  }
-  return false;
+  while (!pila.empty()) {
+    band = 0;
+    actual = pila.top();
+    pila.pop();
+
+    for(i = lista.begin(); i != lista.end(); i++){
+      if(i == actual ){
+        band = 1;
+      }
+    }
+
+    if(band==0){
+      cout << actual-> c << ", ";
+      lista.push_back(actual);
+
+      Arista *aux;
+      aux= actual->ady;
+
+      while (aux != NULL) {
+        band2 = 0;
+        for(i = lista.begin(); i != lista.end(); i++){
+          if(i == actual ){
+            band2 = 1;
+          }
+        }
+        if(band2 == 0){
+          pila.push(aux->ady);
+        }
+        aux = aux->sig;
+      }
+
+    }
+  }*/
 }
-
-recorridoRustico(Vertice *vInical, list<char> listaC){
-  if(listaC.size() == 11){
-    return lista;
-  }else{
-    if(!comprobarlist(list<char> listaC, vInicial->c)){
-      listaC.push_back(c);
-    }else{}
-
-  }
-}
-
-*/
